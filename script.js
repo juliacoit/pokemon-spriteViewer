@@ -20,6 +20,8 @@ async function fetchRandom(){
         errorMsg.style.display = "none";
 
         nameInput.value = pokemonName;
+
+        showType(data);
     }
     catch {
         console.log(error);
@@ -52,6 +54,8 @@ async function fetchData(){
         imgElement.style.display = "block";
         errorMsg.style.display = "none";
 
+        showType(data);
+
     }
     catch(error){
         console.log(error);
@@ -59,4 +63,11 @@ async function fetchData(){
         imgElement.style.display = "none";
         errorMsg.style.display = "block";
     }
+}
+
+function showType (data){
+    const pokemonType = document.getElementById("pokemonType");
+    
+    const types = data.types.map(t => t.type.name).join(", ");
+    pokemonType.textContent = `type: ${types}`;
 }

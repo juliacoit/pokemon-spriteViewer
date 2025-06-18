@@ -22,6 +22,7 @@ async function fetchRandom(){
         nameInput.value = pokemonName;
 
         showType(data);
+        showAbilities(data);
     }
     catch {
         console.log(error);
@@ -55,6 +56,7 @@ async function fetchData(){
         errorMsg.style.display = "none";
 
         showType(data);
+        showAbilities(data);
 
     }
     catch(error){
@@ -70,4 +72,11 @@ function showType (data){
     
     const types = data.types.map(t => t.type.name).join(", ");
     pokemonType.textContent = `type: ${types}`;
+}
+
+function showAbilities (data) {
+    const pokemonAbilities = document.getElementById("pokemonAbilities");
+
+    const ability = data.abilities.map(t => t.ability.name).join(", ");
+    pokemonAbilities.textContent = `Abilities: ${ability}`; 
 }

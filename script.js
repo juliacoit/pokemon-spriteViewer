@@ -71,7 +71,7 @@ function showType (data){
     const pokemonType = document.getElementById("pokemonType");
     
     const types = data.types.map(t => t.type.name).join(", ");
-    pokemonType.textContent = `type: ${types}`;
+    pokemonType.textContent = `Type: ${types}`;
 }
 
 function showAbilities (data) {
